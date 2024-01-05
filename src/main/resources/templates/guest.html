@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Guest - Clearitt test marketing</title>
+	<link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/x-icon" />
+	<link rel="stylesheet" th:href="@{/css/bulma.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+  	<script src="https://unpkg.com/htmx.org@1.9.9" defer></script>
+  	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+
+  <header th:replace="~{fragments :: #navBar}"></header>
+
+  <main>
+
+    <section class="hero is-two-thirds">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-8 is-variable">
+            <div class="column is-full has-text-left">
+              <h1 class="title is-1">Test Marketing - Xero demo</h1>
+              <p th:text="${guestWelcomeMessage}" class="is-size-4"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <div class="container">
+
+          <div class="block">
+            <span th:if="${guestLoginRequired == true}">
+              <a class="button is-dark" href="/auth/xero">XERO LOGIN</a>
+            </span>
+          </div>
+    
+          <div class="block" th:if="${guestLoginRequired == false}">
+            <article class="panel">
+              <p class="panel-heading">
+                Authorisation info
+              </p>
+              <block>
+                <table th:each="map : ${xeroAuthMap}" is-bordered is-striped is-narrow is-hoverable is-fullwidth is-clipped >
+                  <tr th:each="mapEntry : ${map}">
+                      <td th:text="${mapEntry.key}"></td>
+                  </tr>
+                  <tr th:each="mapEntry : ${map}">
+                    <td th:text="${mapEntry.value}"></td> 
+                  </tr>
+                </table>
+              </block>
+            </article>
+          </div>
+
+          <div class="block" th:if="${guestLoginRequired == false}">
+            <article class="panel">
+              <p class="panel-heading">
+                Contacts
+              </p>
+              <header hx-trigger="load" 
+                      hx-get="/xero/contacts"
+                      hx-target="#contacts"
+                      hx-swap="outerHTML"></header>
+              <table id="contacts">
+              </table>
+            </card>
+          </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer th:replace="~{fragments :: #appFooter}"></footer>
+
+</body>
+
+</html>

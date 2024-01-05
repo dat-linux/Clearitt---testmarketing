@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>User - Clearitt test marketing</title>
+	<link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/x-icon" />
+	<link rel="stylesheet" th:href="@{/css/bulma.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+  	<script src="https://unpkg.com/htmx.org@1.9.9" defer></script>
+  	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+
+  <header th:replace="~{fragments :: #navBar}"></header>
+
+  <h1 th:inline="text">User Page</h1> 
+
+  <main>
+    Hello, <span th:text="${#authentication.getPrincipal().getUsername()}"></span>.
+  </main>
+
+  <footer th:replace="~{fragments :: #appFooter}"></footer>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TestmarketingApplication<testmarketing>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.clearitt.testmarketing.TestmarketingApplication",
+            "projectName": "testmarketing",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home - Clearitt test marketing</title>
+	<link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/x-icon" />
+	<link rel="stylesheet" th:href="@{/css/bulma.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+  	<script src="https://unpkg.com/htmx.org@1.9.9" defer></script>
+  	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<body>
+
+	<header th:replace="~{fragments :: #navBar}"></header>
+
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<div class="columns is-8 is-variable ">
+					<div class="column is-two-thirds has-text-left">
+						<h1 class="title is-1">Test Marketing</h1>
+						<p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi soluta
+							voluptate facere molestiae consequatur.</p>
+						<div class="social-media">
+							<form action="/guest">
+								<button type="submit" class="button is-link is-dark">Try Demo as Guest</button>
+							</form>
+						</div>
+					</div>
+					<div class="column is-one-third has-text-left">
+						<h3 class="subtitle is-3">Register your interest</h3>
+						<div class="field">
+							<label class="label">Name</label>
+							<div class="control">
+								<input class="input is-medium" type="text">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control">
+								<input class="input is-medium" type="text">
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Message</label>
+							<div class="control">
+								<textarea class="textarea is-medium"></textarea>
+							</div>
+						</div>
+						<div class="control">
+							<button type="submit" class="button is-fullwidth has-text-weight-medium is-black">Send Message</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer th:replace="~{fragments :: #appFooter}"></footer>
+
+</body>
+
+</html>

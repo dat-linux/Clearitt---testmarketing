@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fragments</title>
+</head>
+
+<body>
+
+<nav class="navbar is-dark" id="navBar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img th:src="@{/img/logo.png}" alt="Logo">
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a href="/" class="navbar-item">Home</a>
+          <a href="/guest" class="navbar-item">Demo</a>
+          <a href="https://clearitt.com/about" target="_blank" class="navbar-item">About</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Account</a>
+            <div class="navbar-dropdown">
+              <span th:if="${guestLoginRequired == true}"><a href="/xero" class="navbar-item">Xero Login</a></span>
+              <span th:if="${guestLoginRequired == false}"></span><a href="/logout" class="navbar-item">Xero Logout</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <table id="xeroContacts" is-bordered is-striped is-narrow is-hoverable is-fullwidth is-clipped >
+    <tr th:each="contact : ${Contacts}">
+        <td>Contact:</td>
+        <td th:text="${contact?.emailAddress}"></td> 
+    </tr>
+  </table>
+
+  <footer class="footer" id="appFooter">
+    <div class="content has-text-centered">
+      <p>
+         &copy; Copyright Clearitt
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
